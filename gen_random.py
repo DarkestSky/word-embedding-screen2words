@@ -33,13 +33,8 @@ for index, row in data.iterrows():
     max_length = max(max_length, len(row['summary'].split()))
     gen_token = []
     for word in row['summary'].split(' '):
-        try:
-            gen_token.append(model.get_vector(word))
-        except:
-            # Some words may not be able to convert correctly, just ignore them
-            gen_token.append([0] * word_dim)
-            error_count += 1
-            # print(index, word)
+        # random tensor presentation
+        gen_token.append(np.random.rand(300) * 2 - 1)
     gen_token = np.array(gen_token)
     new_example = {'screenId': row['screenId'], 'vector': [gen_token]}
     new_example = pd.DataFrame(new_example)

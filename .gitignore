@@ -1,5 +1,6 @@
 glove_data
 result
+.vector_cache
 
 !screen_summaries/
 screen_summaries/*
